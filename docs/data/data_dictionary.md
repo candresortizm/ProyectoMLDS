@@ -53,7 +53,7 @@ Los 25 documentos están en **español**. El número de palabras es aproximado (
 | 12 | Directriz Técnica No. 12 – Servicio de telefonía | Español (`es`) | 535 | Directriz_12.pdf |
 | 13 | Directriz Técnica No. 13 – Actualización sistema operativo Windows Desktop | Español (`es`) | 775 | Directriz_13.pdf |
 | 14 | Directriz Técnica No. 14 – Mantenimiento preventivo y correctivo, ampliaciones, diseños y nuevos proyectos de cableado estructurado | Español (`es`) | 770 | Directriz_14.pdf |
-| 15 | Directriz Técnica No. 15 – No especifica titulo | Español (`es`) | 1 3 | Directriz_15.pdf |
+| 15 | Directriz Técnica No. 15 – No especifica titulo | Español (`es`) | 3 | Directriz_15.pdf |
 | 16 | Directriz Técnica No. 16 – Política de seguridad informática y de la información para backups y recuperaciones | Español (`es`) | 1 785 | Directriz_16.pdf |
 | 17 | Directriz Técnica No. 17 – Implementación de aplicaciones móviles | Español (`es`) | 410 | Directriz_17.pdf |
 | 18 | Directriz Técnica No. 18 – Tipos de licenciamiento de software | Español (`es`) | 2 100 | Directriz_18.pdf |
