@@ -9,7 +9,17 @@ authors = [{name = "autor1", email = "correo@correo.com"}]
 description = "Descripción del proyecto"
 requires-python = ">3.8"
 dependencies = [
-    "numpy"
+    "numpy",
+    "requests",
+    "pypdf",
+]
+
+[project.optional-dependencies]
+ocr = [
+    "pdf2image",
+    "pytesseract",
+    "opencv-python-headless",
+    "pillow",
 ]
 
 [tool.setuptools.packages.find]
