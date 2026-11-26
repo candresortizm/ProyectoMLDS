@@ -40,12 +40,11 @@ Aunque las directrices son públicas, en muchas ocasiones no son conocidas por l
   - Sobre un conjunto de consultas de prueba construido por el equipo, el sistema semántico supera al modelo base léxico (TF-IDF/BM25) en métricas de recuperación como Precision@k y MRR.
   - El documento correcto aparece entre los primeros resultados (top 3) para la mayoría de las consultas de prueba.
   - Las respuestas se entregan en pocos segundos y siempre citan la directriz de origen.
+  - Interfaz para interacción con la herramienta, sea API o una interfaz gráfica sencilla.
 
 ### Excluye:
 
 - Documentos distintos a las Directrices Técnicas de la DNED (resoluciones, acuerdos, circulares u otras normas de la Universidad).
-- Generación de respuestas con modelos generativos (LLM); el sistema recupera y muestra fragmentos de las directrices, no redacta respuestas nuevas.
-- Despliegue en producción en la infraestructura de la Universidad, integración con sistemas institucionales y gestión de usuarios.
 - Actualización automática del corpus cuando la DNED publique nuevas directrices (el sistema queda preparado para escalar, pero la sincronización periódica no hace parte del alcance).
 - Interpretación jurídica o validación normativa del contenido de las directrices.
 
@@ -69,10 +68,9 @@ Entregas semanales a partir del inicio del proyecto (21 de noviembre de 2026). L
 |------|---------|-------|
 | Entendimiento del negocio y carga de datos | 1 semana | del 21 al 27 de noviembre |
 | Entendimiento y preparación del corpus (EDA y limpieza) | 1 semana | del 28 de noviembre al 4 de diciembre |
-| Extracción de características y modelo base | 1 semana | del 5 al 11 de diciembre |
-| Modelamiento y evaluación (búsqueda semántica) | 1 semana | del 12 al 18 de diciembre |
-| Despliegue | 1 semana | del 19 al 25 de diciembre |
-| Evaluación y entrega final | 1 semana | del 26 de diciembre al 1 de enero |
+| Modelamiento y extracción de características (búsqueda semántica) | 1 semana | del 5 al 11 de diciembre |
+| Despliegue | 1 semana | del 12 al 18 de diciembre |
+| Evaluación y entrega final | 3 días | del 19 al 21 de diciembre |
 
 ## Equipo del Proyecto
 

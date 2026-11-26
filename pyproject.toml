@@ -5,8 +5,10 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "nombre_paquete"
 version = "0.1.0"
-authors = [{name = "autor1", email = "correo@correo.com"}]
-description = "Descripción del proyecto"
+authors = [{name = "Miguel Alejandro Bermúdez Claros", email = "mibermudezc@unal.edu.co"},
+            {name = "Camilo Andrés Ortiz Morales", email = "caaortizmo@unal.edu.co"},
+            {name = "José Ricardo Cepeda Cepeda", email = "jocepedac@unal.edu.co"}]
+description = "Desarrollo de un sistema de búsqueda semántica basado en procesamiento de lenguaje natural (NLP) que permita a la DNED y a las dependencias de la Universidad acceder rápidamente a las Directrices Técnicas mediante consultas en lenguaje natural"
 requires-python = ">3.8"
 dependencies = [
     "numpy",
