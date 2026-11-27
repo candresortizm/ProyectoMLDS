@@ -1,9 +1,16 @@
 Metadata-Version: 2.4
 Name: nombre_paquete
 Version: 0.1.0
-Summary: Descripción del proyecto
-Author-email: autor1 <correo@correo.com>
+Summary: Desarrollo de un sistema de búsqueda semántica basado en procesamiento de lenguaje natural (NLP) que permita a la DNED y a las dependencias de la Universidad acceder rápidamente a las Directrices Técnicas mediante consultas en lenguaje natural
+Author-email: Miguel Alejandro Bermúdez Claros <mibermudezc@unal.edu.co>, Camilo Andrés Ortiz Morales <caaortizmo@unal.edu.co>, José Ricardo Cepeda Cepeda <jocepedac@unal.edu.co>
 Requires-Python: >3.8
 License-File: LICENSE
 Requires-Dist: numpy
+Requires-Dist: requests
+Requires-Dist: pypdf
+Provides-Extra: ocr
+Requires-Dist: pdf2image; extra == "ocr"
+Requires-Dist: pytesseract; extra == "ocr"
+Requires-Dist: opencv-python-headless; extra == "ocr"
+Requires-Dist: pillow; extra == "ocr"
 Dynamic: license-file

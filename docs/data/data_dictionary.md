@@ -2,28 +2,19 @@
 
 ## Base de datos 1 — `documentos` (catálogo de directrices)
 
-Tabla con un registro por cada Directriz Técnica de la DNED (25 registros). Contiene los metadatos que se extraen de cada PDF y sirve para filtrar los resultados y citar la fuente en la búsqueda semántica.
+Archivo `data/raw/documentos.csv`, generado por `scripts/data_acquisition/main.py`. Tiene un registro por cada Directriz Técnica de la DNED (25 registros) con los metadatos de la descarga y de la extracción del texto. Los rangos y valores de la tabla son los que salieron en la ejecución del 26 de noviembre de 2026.
 
 | Variable | Descripción | Tipo de dato | Rango/Valores posibles | Fuente de datos |
 | --- | --- | --- | --- | --- |
-| num_directriz | Número oficial de la directriz técnica | Entero | 1 – 25 | Encabezado del PDF ("DIRECTRIZ TÉCNICA No. XX") |
-| nombre_documento | Nombre oficial de la directriz (número + tema) | Texto (string) | p. ej. "Directriz Técnica No. 07 – Mantenimiento y soporte de soluciones informáticas" (ver el listado al final de esta sección) | Encabezado del PDF |
-| titulo | Título o tema de la directriz | Texto (string) | Texto libre, p. ej. "Mantenimiento y soporte de soluciones informáticas" | Encabezado del PDF |
-| idioma | Idioma en que está escrito el documento | Categórica (código ISO 639-1) | `es` (español) en los 25 documentos | Detección automática (`langdetect`) y verificación manual |
-| texto_completo | Texto íntegro de la directriz ya limpio (sin pies de página ni encabezados repetidos) | Texto (string) | Longitud variable; se mide en el análisis exploratorio | PDF tras la extracción y la limpieza |
-| palabras | Palabras (tokens) que componen el documento, en orden | Lista de texto | Tokens en español, incluidas siglas (ANS, TI, UTM, RAM) y nombres propios (Windows, Office, EasyPos) | Tokenización de `texto_completo` (spaCy `es_core_news_sm`) |
-| vocabulario | Palabras únicas del documento (lematizadas, sin *stopwords*), con su frecuencia | Diccionario {palabra: frecuencia} | Depende del documento | Calculado a partir de `palabras` |
-| num_palabras_unicas | Tamaño del vocabulario del documento | Entero | **[PENDIENTE — análisis exploratorio]** | Calculado a partir de `vocabulario` |
-| fecha_expedicion | Fecha de expedición de la directriz | Fecha (YYYY-MM-DD) | 2024-10-01 (23 docs), 2025-03-06 (No. 15), 2025-06-18 (No. 22) | Encabezado del PDF |
-| categoria | Área temática asignada para filtrar | Categórica (string) | `contratacion_adquisiciones`, `software_licenciamiento`, `desarrollo_soporte`, `infraestructura_redes`, `seguridad_informacion`, `identidad_servicios` | Etiquetado manual del equipo del proyecto |
-| url_fuente | URL pública del PDF | Texto (URL) | `https://web.unal.edu.co/direccion/estrategia-digital/cms/uploads/Directriz_{n}_{hash}.pdf` | Lista de URL del proyecto |
-| nombre_archivo | Nombre del archivo descargado | Texto (string) | `Directriz_1.pdf` … `Directriz_25.pdf` | `scripts/data_acquisition/main.py` |
-| sha256 | Hash del PDF para detectar cambios | Texto (64 caracteres hex) | Hexadecimal | Calculado en la descarga |
-| num_paginas | Número de páginas del PDF | Entero | 2 – 8 | Metadatos del PDF |
-| num_palabras | Palabras del texto ya limpio | Entero | **[PENDIENTE — análisis exploratorio]** | Calculado en el preprocesamiento |
-| tiene_tablas | Indica si el documento contiene tablas | Booleano | `true` / `false` (true en No. 7, 13, 19, 20, 21) | Extracción de tablas (`pdfplumber`) |
-| metodo_extraccion | Cómo se obtuvo el texto | Categórica (string) | `texto_nativo`, `ocr` (No. 15) | `extract_text.py` |
-| fecha_descarga | Fecha y hora de la descarga | Fecha-hora (ISO 8601) | — | `scripts/data_acquisition/main.py` |
+| num_directriz | Número oficial de la directriz técnica | Entero | 1 – 25 | URL del PDF (`Directriz_{n}_`), `acquisition.py` |
+| nombre_archivo | Nombre del PDF descargado | Texto (string) | `Directriz_1.pdf` … `Directriz_25.pdf` | `acquisition.py` |
+| url_fuente | URL pública del PDF | Texto (URL) | `https://web.unal.edu.co/direccion/estrategia-digital/cms/uploads/Directriz_{n}_{hash}.pdf` | Lista `URLS` de `acquisition.py` |
+| sha256 | Hash del PDF para detectar cambios | Texto (64 caracteres hex) | 25 valores distintos | Calculado en la descarga, `acquisition.py` |
+| num_paginas | Número de páginas del PDF | Entero | 2 – 8 (88 en total) | Metadatos del PDF (`pypdf`), `extraction.py` |
+| metodo_extraccion | Cómo se obtuvo el texto | Categórica (string) | `texto_nativo`, `ocr`, `sin_ocr`; `ocr` en los 25 documentos | `extraction.py` |
+| num_caracteres | Longitud del texto extraído | Entero | 3587 – 20.309 (202.035 en total) | `extraction.py` |
+| archivo_texto | Archivo con el texto extraído | Texto (string) | `Directriz_1.txt` … `Directriz_25.txt` | `extraction.py` |
+| fecha_descarga | Fecha y hora de la descarga (UTC) | Fecha-hora (ISO 8601) | 2026-11-27T02:57:09+00:00 – 2026-11-27T02:57:18+00:00 | Fecha de modificación del PDF descargado, `acquisition.py` |
 
 - **Variable**: nombre de la variable.
 - **Descripción**: breve descripción de la variable.

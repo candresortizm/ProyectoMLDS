@@ -1,1 +1,9 @@
 numpy
+requests
+pypdf
+
+[ocr]
+pdf2image
+pytesseract
+opencv-python-headless
+pillow

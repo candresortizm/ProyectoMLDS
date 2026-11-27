@@ -18,7 +18,9 @@ from pathlib import Path
 
 from pypdf import PdfReader
 
-# Si un PDF tiene menos caracteres por página que este umbral se considera escaneado.
+# Si alguna página de un PDF tiene menos caracteres que este umbral, el PDF se
+# considera escaneado. Las páginas escaneadas solo traen como texto nativo el pie
+# de página (120 a 170 caracteres).
 MIN_CARACTERES_POR_PAGINA = 200
 
 # Región útil de la página a 200 DPI (fuera de ella están el encabezado y el pie).
@@ -47,11 +49,14 @@ def extraer_texto_nativo(pdf: Path) -> list[str]:
 
 
 def es_escaneado(paginas: list[str]) -> bool:
-    """Indica si el PDF no tiene suficiente texto nativo y requiere OCR."""
+    """Indica si el PDF requiere OCR.
+
+    Basta con que una página tenga poco texto nativo: hay PDF que mezclan páginas
+    con texto e imágenes (p. ej. la Directriz No. 13) y el promedio los ocultaría.
+    """
     if not paginas:
         return True
-    caracteres = sum(len(p) for p in paginas)
-    return caracteres / len(paginas) < MIN_CARACTERES_POR_PAGINA
+    return any(len(p) < MIN_CARACTERES_POR_PAGINA for p in paginas)
 
 
 def ocr_imagen(imagen, idioma: str = "spa") -> str:

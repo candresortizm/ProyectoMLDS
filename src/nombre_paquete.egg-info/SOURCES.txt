@@ -1,7 +1,10 @@
+.DS_Store
 .gitignore
 LICENSE
 README.md
 pyproject.toml
+uv.lock
+docs/.DS_Store
 docs/acceptance/exit_report.md
 docs/business_understanding/project_charter.md
 docs/data/data_definition.md
@@ -10,6 +13,7 @@ docs/data/data_summary.md
 docs/deployment/deploymentdoc.md
 docs/modeling/baseline_models.md
 docs/modeling/model_report.md
+scripts/.DS_Store
 scripts/data_acquisition/main.py
 scripts/eda/main.py
 scripts/evaluation/main.py
@@ -22,6 +26,8 @@ src/nombre_paquete.egg-info/dependency_links.txt
 src/nombre_paquete.egg-info/requires.txt
 src/nombre_paquete.egg-info/top_level.txt
 src/nombre_paquete/database/__init__.py
+src/nombre_paquete/database/acquisition.py
+src/nombre_paquete/database/extraction.py
 src/nombre_paquete/evaluation/__init__.py
 src/nombre_paquete/models/__init__.py
 src/nombre_paquete/preprocessing/__init__.py
